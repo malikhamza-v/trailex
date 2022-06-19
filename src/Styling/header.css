@@ -11,3 +11,8 @@
 .header__black{
     background-color: #111;
 }
+
+.header__logo{
+    height: 50px;
+    object-fit: contain;
+}

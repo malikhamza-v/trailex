@@ -19,7 +19,7 @@ function Header() {
   return (
     <header>
       <div className={`header ${show && "header__black"}`}>
-        <img src={logo} alt="Trailex" />
+        <img className="header__logo" src={logo} alt="Trailex" />
       </div>
     </header>
   );

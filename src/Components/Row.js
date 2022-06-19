@@ -14,7 +14,7 @@ function Row({ title, fetchURL, isLargeRow }) {
       return request;
     }
     fetchData();
-  }, [movies]);
+  }, []);
 
   return (
     <div className="row">
@@ -25,6 +25,7 @@ function Row({ title, fetchURL, isLargeRow }) {
             false
           ) : (
             <img
+              loading="lazy"
               key={movie.id}
               className={`row__poster ${isLargeRow && "row__posterlarge"}`}
               src={`${base_url}${
