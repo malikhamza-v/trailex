@@ -1,0 +1,13 @@
+.header{
+    position: fixed;
+    width: 100%;
+    text-align: center;
+    z-index: 1;
+
+    transition-timing-function: ease-in;
+    transition: all 0.5s;
+}
+
+.header__black{
+    background-color: #111;
+}
