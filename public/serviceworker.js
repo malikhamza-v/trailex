@@ -1,7 +1,7 @@
 const CACHE_NAME = "varsion-1";
 const urlsToCache = ["index.html", "offline.html"];
 
-// const self = this;
+const self = this;
 
 //intallation of server worker
 self.addEventListener("install", (event) => {

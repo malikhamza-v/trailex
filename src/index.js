@@ -3,6 +3,8 @@ import ReactDOM from "react-dom/client";
 import "./Styling/index.css";
 import Header from "./Components/Header";
 import Banner from "./Components/Banner.js";
+import Row from "./Components/Row.js";
+import request from "./Module/requests";
 import CompleteRows from "./Components/CompleteRows.js";
 
 const App = () => {
