@@ -6,7 +6,7 @@ import movieTrailer from "movie-trailer";
 import { LazyLoadImage } from "react-lazy-load-image-component";
 import "react-lazy-load-image-component/src/effects/blur.css";
 
-function Row({ title, fetchURL, isLargeRow }) {
+function Row({ title, fetchURL, isLargeRow, changeState, id }) {
   const base_url = "https://image.tmdb.org/t/p/w500/";
   const [movies, setMovies] = useState([]);
   const [trailerUrl, setTrailerUrl] = useState("");
@@ -15,7 +15,7 @@ function Row({ title, fetchURL, isLargeRow }) {
     async function fetchData() {
       const request = await axios.get(fetchURL);
       setMovies(request.data.results);
-
+      // console.log(movies);
       return request;
     }
     fetchData();
@@ -47,20 +47,26 @@ function Row({ title, fetchURL, isLargeRow }) {
       <h2 className="row__heading">{title}</h2>
       <div className="row__posters">
         {movies.map((movie) => (
-          <LazyLoadImage
-            className={`row__poster ${isLargeRow && "row__posterlarge"}`}
-            effect="blur"
-            src={`${base_url}${
-              isLargeRow ? movie.poster_path : movie.backdrop_path
-            }`}
-            key={movie.id}
-            alt={movie.title}
-            onClick={() => handleClick(movie)}
-          />
+          <div key={movie.id}>
+            <LazyLoadImage
+              className={`row__poster ${isLargeRow && "row__posterlarge"}`}
+              effect="blur"
+              src={`${base_url}${
+                isLargeRow ? movie.poster_path : movie.backdrop_path
+              }`}
+              alt={movie.title}
+              onClick={() => handleClick(movie)}
+            />
+            <div className="row__rating">
+              <span>{movie.vote_average}</span>
+            </div>
+          </div>
         ))}
       </div>
 
-      {trailerUrl && <YouTube videoId={trailerUrl} opts={opts} />}
+      {trailerUrl && (
+        <YouTube className="row__video" videoId={trailerUrl} opts={opts} />
+      )}
     </div>
   );
 }

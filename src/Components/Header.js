@@ -20,6 +20,7 @@ function Header() {
     <header>
       <div className={`header ${show && "header__black"}`}>
         <img className="header__logo" src={logo} alt="Trailex" />
+        <h3 className="header__desc">Click any movie to see the trailer.</h3>
       </div>
     </header>
   );
